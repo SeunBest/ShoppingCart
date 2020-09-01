@@ -14,6 +14,9 @@ namespace ShoppingCart
 {
     public partial class Form1 : Form
     {
+        int pid;
+        decimal price;
+        string name;
         IConnection Cont;
         public Form1(IConnection cont)
         {
@@ -63,6 +66,18 @@ namespace ShoppingCart
             else
             {
                 MessageBox.Show("Check either your id or new price values");
+            }
+        }
+
+        private void CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Products.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                Products.CurrentRow.Selected = true;
+                name = Products.Rows[e.RowIndex].Cells["ProductName"].FormattedValue.ToString();
+                price = Decimal.Parse(Products.Rows[e.RowIndex].Cells["CostPrice"].FormattedValue.ToString());
+                pid = Convert.ToInt32(Products.Rows[e.RowIndex].Cells["ProductId"].FormattedValue.ToString());
+                MessageBox.Show($"{name}, {price}, {pid}");
             }
         }
     }

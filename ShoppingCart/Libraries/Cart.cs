@@ -6,6 +6,7 @@ namespace ShoppingCart.Libraries
 {
     public class Cart
     {
+        public int Id { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
         public DateTime DateOfOrder { get; set; }

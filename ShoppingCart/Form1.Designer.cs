@@ -42,7 +42,15 @@
             this.EName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.EPrice = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Products)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -50,7 +58,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Location = new System.Drawing.Point(149, 43);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(219, 29);
+            this.button1.Size = new System.Drawing.Size(302, 29);
             this.button1.TabIndex = 0;
             this.button1.Text = "Add Product";
             this.button1.UseVisualStyleBackColor = false;
@@ -60,7 +68,7 @@
             // 
             this.ProNa.Location = new System.Drawing.Point(122, 6);
             this.ProNa.Name = "ProNa";
-            this.ProNa.Size = new System.Drawing.Size(246, 27);
+            this.ProNa.Size = new System.Drawing.Size(329, 27);
             this.ProNa.TabIndex = 1;
             // 
             // label1
@@ -94,15 +102,16 @@
             this.Products.Location = new System.Drawing.Point(12, 284);
             this.Products.Name = "Products";
             this.Products.RowHeadersWidth = 51;
-            this.Products.Size = new System.Drawing.Size(439, 438);
+            this.Products.Size = new System.Drawing.Size(439, 349);
             this.Products.TabIndex = 3;
             this.Products.Text = "dataGridView1";
+            this.Products.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(165, 253);
+            this.label3.Location = new System.Drawing.Point(134, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 28);
             this.label3.TabIndex = 4;
@@ -113,7 +122,7 @@
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.Location = new System.Drawing.Point(12, 221);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(356, 29);
+            this.button2.Size = new System.Drawing.Size(439, 29);
             this.button2.TabIndex = 0;
             this.button2.Text = "Edit Product";
             this.button2.UseVisualStyleBackColor = false;
@@ -148,7 +157,7 @@
             // 
             this.EName.Location = new System.Drawing.Point(149, 130);
             this.EName.Name = "EName";
-            this.EName.Size = new System.Drawing.Size(219, 27);
+            this.EName.Size = new System.Drawing.Size(302, 27);
             this.EName.TabIndex = 1;
             // 
             // label6
@@ -164,15 +173,89 @@
             // 
             this.EPrice.Location = new System.Drawing.Point(150, 168);
             this.EPrice.Name = "EPrice";
-            this.EPrice.Size = new System.Drawing.Size(219, 27);
+            this.EPrice.Size = new System.Drawing.Size(301, 27);
             this.EPrice.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Location = new System.Drawing.Point(457, 410);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(356, 54);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Add To Cart";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Edit_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(819, 284);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(439, 349);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.Text = "dataGridView1";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button4.Location = new System.Drawing.Point(457, 534);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(356, 54);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Remove From Cart";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.Edit_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(999, 253);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 28);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "CART";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(242, 657);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(209, 27);
+            this.numericUpDown1.TabIndex = 6;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 659);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(223, 20);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Product Quantity To Add To Cart";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1508, 734);
+            this.ClientSize = new System.Drawing.Size(1271, 734);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.EPrice);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.EName);
@@ -190,6 +273,8 @@
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.FormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.Products)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +296,12 @@
         private System.Windows.Forms.TextBox EName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox EPrice;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label8;
     }
 }
 
