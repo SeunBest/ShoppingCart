@@ -31,6 +31,7 @@ namespace ShoppingCart
                 Cont.InsertPro(ProNa.Text, d);
                 this.Products.DataSource = Cont.GetProducts();
                 Cont.CloseConnection();
+                MessageBox.Show("Product added successfully");
             }
             else
             {
@@ -46,6 +47,23 @@ namespace ShoppingCart
             Cont.CloseConnection();
         }
 
-       
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            int.TryParse(EPrice.Text, out int c);
+            int.TryParse(id.Text, out int d);
+
+            if (c > 0 && d > 0)
+            {
+                Cont.OpenConnection();
+                Cont.EditPro(EName.Text, c, d);
+                this.Products.DataSource = Cont.GetProducts();
+                Cont.CloseConnection();
+                MessageBox.Show("Product edited successfully");
+            }
+            else
+            {
+                MessageBox.Show("Check either your id or new price values");
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace ShoppingCart.Libraries
         public void CloseConnection();
         public void ExecuteQueries(string query);
         public void InsertPro(string name, int cost);
-
+        public void EditPro(string name, int cost, int id);
         public List<Product> GetProducts();
 
         public void InsertCart(string name, int cost);

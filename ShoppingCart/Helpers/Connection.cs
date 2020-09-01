@@ -28,7 +28,13 @@ namespace ShoppingCart.Helpers
             string query = $"INSERT INTO Product (ProductName, CostPrice) VALUES('{name}', '{cost}')";
             using var cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
-            //CloseConnection();
+        }
+
+        public void EditPro(string name, int cost, int id)
+        {
+            string query = $"UPDATE Product SET ProductName = '{name}', CostPrice = '{cost}' WHERE ProductId = '{id}'";
+            using var cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
         }
 
         public List<Product> GetProducts()
@@ -47,7 +53,6 @@ namespace ShoppingCart.Helpers
                 products.Add(product);
             }
             return products;
-           // if(result.Read())
         }
 
         public void InsertCart(string name, int cost)
