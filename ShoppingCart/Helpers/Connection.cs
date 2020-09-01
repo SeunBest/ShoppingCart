@@ -28,6 +28,7 @@ namespace ShoppingCart.Helpers
             string query = $"INSERT INTO Product (ProductName, CostPrice) VALUES('{name}', '{cost}')";
             using var cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
+            //CloseConnection();
         }
 
         public List<Product> GetProducts()

@@ -23,14 +23,27 @@ namespace ShoppingCart
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            int.TryParse(ProCost.Text, out int d);
+
+            if (d > 0)
+            {
+                Cont.OpenConnection();
+                Cont.InsertPro(ProNa.Text, d);
+                this.Products.DataSource = Cont.GetProducts();
+                Cont.CloseConnection();
+            }
+            else
+            {
+                MessageBox.Show("Enter a number greater than 0");
+            }
+
         }
 
         private void FormLoad(object sender, EventArgs e)
         {
             Cont.OpenConnection();
             this.Products.DataSource = Cont.GetProducts();
-
+            Cont.CloseConnection();
         }
 
        
