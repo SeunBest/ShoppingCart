@@ -32,7 +32,7 @@ namespace ShoppingCart.Libraries
         public void InsertCart(int ProductId, int qty);
         //This method reads from query
         public SqlDataReader DataReader(string Query_);
-        //This method opens the connection
+        //This method displays the gridview data
         public object ShowDataInGridView(string Query_);
         //This method clears the cart
         public void ClearCart();
@@ -40,5 +40,7 @@ namespace ShoppingCart.Libraries
         public List<Product> FilterProducts(string name);
         //This method filters products based on cost
         public List<Product> FilterPrice(decimal cost);
+        public List<Product> GetProductsPage(int offs, int sp);
+        
     }
 }

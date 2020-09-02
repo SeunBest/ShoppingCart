@@ -54,7 +54,7 @@
             this.Fina = new System.Windows.Forms.Button();
             this.Fipa = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.ClearCa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Qty)).BeginInit();
@@ -245,7 +245,7 @@
             this.button6.TabIndex = 0;
             this.button6.Text = "Next Page";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Add_Click);
+            this.button6.Click += new System.EventHandler(this.Nex);
             // 
             // button7
             // 
@@ -309,16 +309,16 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.FormLoad);
             // 
-            // button9
+            // ClearCa
             // 
-            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button9.Location = new System.Drawing.Point(457, 545);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(278, 54);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "Remove From Cart";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.DelClick);
+            this.ClearCa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClearCa.Location = new System.Drawing.Point(457, 545);
+            this.ClearCa.Name = "ClearCa";
+            this.ClearCa.Size = new System.Drawing.Size(278, 54);
+            this.ClearCa.TabIndex = 0;
+            this.ClearCa.Text = "Clear Cart";
+            this.ClearCa.UseVisualStyleBackColor = false;
+            this.ClearCa.Click += new System.EventHandler(this.Cleca);
             // 
             // Form1
             // 
@@ -326,7 +326,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1271, 734);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.ClearCa);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.Fipa);
             this.Controls.Add(this.Fina);
@@ -392,7 +392,7 @@
         private System.Windows.Forms.Button Fina;
         private System.Windows.Forms.Button Fipa;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button ClearCa;
     }
 }
 

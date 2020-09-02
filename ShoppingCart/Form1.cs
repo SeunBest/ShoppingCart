@@ -20,6 +20,7 @@ namespace ShoppingCart
         /// </summary>
         int pid;
         int cid;
+        int cur;
         decimal price;
         string name = null;
         IConnection Cont;
@@ -185,6 +186,36 @@ namespace ShoppingCart
             else
             {
                 MessageBox.Show("The filter price button only works with decimals, try filter by name for text");
+            }
+        }
+
+        private void Cleca(object sender, EventArgs e)
+        {
+            Cont.OpenConnection();
+            Cont.ClearCart();
+            Cont.CloseConnection();
+
+            Cont.OpenConnection();
+            Cart.DataSource = Cont.GetCart();
+            Cont.CloseConnection();
+        }
+
+        private void Nex(object sender, EventArgs e)
+        {
+            Cont.OpenConnection();
+            var co = Cont.GetProducts();
+            Cont.CloseConnection();
+            int cos = co.Count();
+            if (cur <= cos)
+            {
+                Cont.OpenConnection();
+                Products.DataSource = Cont.GetProductsPage(cur, 5);
+                Cont.CloseConnection();
+                cur += 5;
+            }
+            else
+            {
+                MessageBox.Show("End of Pages");
             }
         }
     }
