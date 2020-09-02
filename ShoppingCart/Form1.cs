@@ -16,7 +16,7 @@ namespace ShoppingCart
     {
         int pid;
         decimal price;
-        string name;
+        string name = null;
         IConnection Cont;
         public Form1(IConnection cont)
         {
@@ -77,7 +77,25 @@ namespace ShoppingCart
                 name = Products.Rows[e.RowIndex].Cells["ProductName"].FormattedValue.ToString();
                 price = Decimal.Parse(Products.Rows[e.RowIndex].Cells["CostPrice"].FormattedValue.ToString());
                 pid = Convert.ToInt32(Products.Rows[e.RowIndex].Cells["ProductId"].FormattedValue.ToString());
-                MessageBox.Show($"{name}, {price}, {pid}");
+               // MessageBox.Show($"{name}, {price}, {pid}");
+            }
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+           int qty = (int)Qty.Value;
+           if (name != null)
+            {
+                Cont.OpenConnection();
+                Cont.InsertCart(pid, qty);
+                this.Cart.DataSource = Cont.GetCart();
+                Cont.CloseConnection();
+                MessageBox.Show("Product added successfully to cart");
+                name = null;
+            }
+            else
+            {
+                MessageBox.Show("Highlight a product");
             }
         }
     }

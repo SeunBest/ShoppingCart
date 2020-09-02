@@ -43,14 +43,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.EPrice = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Cart = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.Qty = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Products)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Qty)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -181,28 +181,28 @@
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.Location = new System.Drawing.Point(457, 410);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(356, 54);
+            this.button3.Size = new System.Drawing.Size(278, 54);
             this.button3.TabIndex = 0;
             this.button3.Text = "Add To Cart";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.Edit_Click);
+            this.button3.Click += new System.EventHandler(this.Add_Click);
             // 
-            // dataGridView1
+            // Cart
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(819, 284);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(439, 349);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.Text = "dataGridView1";
+            this.Cart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Cart.Location = new System.Drawing.Point(741, 284);
+            this.Cart.Name = "Cart";
+            this.Cart.RowHeadersWidth = 51;
+            this.Cart.Size = new System.Drawing.Size(517, 349);
+            this.Cart.TabIndex = 3;
+            this.Cart.Text = "dataGridView1";
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button4.Location = new System.Drawing.Point(457, 534);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(356, 54);
+            this.button4.Size = new System.Drawing.Size(278, 54);
             this.button4.TabIndex = 0;
             this.button4.Text = "Remove From Cart";
             this.button4.UseVisualStyleBackColor = false;
@@ -218,18 +218,18 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "CART";
             // 
-            // numericUpDown1
+            // Qty
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(242, 657);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.Qty.Location = new System.Drawing.Point(242, 657);
+            this.Qty.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(209, 27);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.Qty.Name = "Qty";
+            this.Qty.Size = new System.Drawing.Size(209, 27);
+            this.Qty.TabIndex = 6;
+            this.Qty.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -251,10 +251,10 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1271, 734);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.Qty);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Cart);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.EPrice);
             this.Controls.Add(this.label6);
@@ -273,8 +273,8 @@
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.FormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.Products)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Qty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,10 +297,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox EPrice;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Cart;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown Qty;
         private System.Windows.Forms.Label label8;
     }
 }

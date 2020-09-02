@@ -13,6 +13,7 @@ namespace ShoppingCart.Libraries
         public void InsertPro(string name, int cost);
         public void EditPro(string name, int cost, int id);
         public List<Product> GetProducts();
+        public List<Cart> GetCart();
 
         public void InsertCart(int ProductId, int qty);
         public SqlDataReader DataReader(string Query_);
