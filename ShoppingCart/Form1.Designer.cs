@@ -49,7 +49,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.Prev = new System.Windows.Forms.Button();
             this.Filter = new System.Windows.Forms.TextBox();
             this.Fina = new System.Windows.Forms.Button();
             this.Fipa = new System.Windows.Forms.Button();
@@ -258,16 +258,16 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.ProDel);
             // 
-            // button5
+            // Prev
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button5.Location = new System.Drawing.Point(8, 659);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(182, 54);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Previous Page";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.Add_Click);
+            this.Prev.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Prev.Location = new System.Drawing.Point(8, 659);
+            this.Prev.Name = "Prev";
+            this.Prev.Size = new System.Drawing.Size(182, 54);
+            this.Prev.TabIndex = 0;
+            this.Prev.Text = "Previous Page";
+            this.Prev.UseVisualStyleBackColor = false;
+            this.Prev.Click += new System.EventHandler(this.Previ);
             // 
             // Filter
             // 
@@ -333,7 +333,7 @@
             this.Controls.Add(this.Filter);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.Prev);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Qty);
             this.Controls.Add(this.label7);
@@ -387,7 +387,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Prev;
         private System.Windows.Forms.TextBox Filter;
         private System.Windows.Forms.Button Fina;
         private System.Windows.Forms.Button Fipa;

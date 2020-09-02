@@ -53,8 +53,9 @@ namespace ShoppingCart
 
         private void FormLoad(object sender, EventArgs e)
         {
+            cur = 0;
             Cont.OpenConnection();
-            this.Products.DataSource = Cont.GetProducts();
+            Products.DataSource = Cont.GetProductsPage(cur, 5);
             Cont.CloseConnection();
 
             Cont.OpenConnection();
@@ -216,6 +217,25 @@ namespace ShoppingCart
             else
             {
                 MessageBox.Show("End of Pages");
+            }
+        }
+
+        private void Previ(object sender, EventArgs e)
+        {
+            Cont.OpenConnection();
+            var co = Cont.GetProducts();
+            Cont.CloseConnection();
+            int cos = co.Count();
+            if (cur >= 0)
+            {
+                Cont.OpenConnection();
+                Products.DataSource = Cont.GetProductsPage(cur, 5);
+                Cont.CloseConnection();
+                cur -= 5;
+            }
+            else
+            {
+                MessageBox.Show("Pages can not go back beyond this");
             }
         }
     }
