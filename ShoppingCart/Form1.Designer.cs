@@ -106,10 +106,10 @@
             // Products
             // 
             this.Products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Products.Location = new System.Drawing.Point(12, 317);
+            this.Products.Location = new System.Drawing.Point(12, 372);
             this.Products.Name = "Products";
             this.Products.RowHeadersWidth = 51;
-            this.Products.Size = new System.Drawing.Size(439, 316);
+            this.Products.Size = new System.Drawing.Size(439, 227);
             this.Products.TabIndex = 3;
             this.Products.Text = "dataGridView1";
             this.Products.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
@@ -118,7 +118,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(160, 284);
+            this.label3.Location = new System.Drawing.Point(158, 341);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 28);
             this.label3.TabIndex = 4;
