@@ -21,5 +21,8 @@ namespace ShoppingCart.Libraries
         public SqlDataReader DataReader(string Query_);
 
         public object ShowDataInGridView(string Query_);
+        public void ClearCart();
+        public List<Product> FilterProducts(string name);
+        public List<Product> FilterPrice(decimal cost);
     }
 }

@@ -55,6 +55,42 @@ namespace ShoppingCart.Helpers
             return products;
         }
 
+        public List<Product> FilterProducts(string name)
+        {
+            List<Product> products = new List<Product>();
+            string query = $"SELECT * FROM Product WHERE ProductName LIKE '%{name}%'";
+            using var cmd = new SqlCommand(query, con);
+            var result = cmd.ExecuteReader();
+            while (result.Read())
+            {
+                var product = new Product();
+                product.ProductId = (int)result[0];
+                product.ProductName = (string)result[1];
+                product.CostPrice = (decimal)result[2];
+                product.DateAdded = (DateTime)result[3];
+                products.Add(product);
+            }
+            return products;
+        }
+
+        public List<Product> FilterPrice(decimal cost)
+        {
+            List<Product> products = new List<Product>();
+            string query = $"SELECT * FROM Product WHERE CostPrice<='{cost}'";
+            using var cmd = new SqlCommand(query, con);
+            var result = cmd.ExecuteReader();
+            while (result.Read())
+            {
+                var product = new Product();
+                product.ProductId = (int)result[0];
+                product.ProductName = (string)result[1];
+                product.CostPrice = (decimal)result[2];
+                product.DateAdded = (DateTime)result[3];
+                products.Add(product);
+            }
+            return products;
+        }
+
         public List<Cart> GetCart()
         {
             List<Cart> carts = new List<Cart>();
@@ -84,6 +120,13 @@ namespace ShoppingCart.Helpers
         public void DelCart(int cid)
         {
             string query = $"DELETE FROM Cart WHERE Id='{cid}'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void ClearCart()
+        {
+            string query = $"DELETE FROM Cart";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
         }

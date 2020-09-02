@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.ProNa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,9 +47,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Qty = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.Filter = new System.Windows.Forms.TextBox();
+            this.Fina = new System.Windows.Forms.Button();
+            this.Fipa = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Qty)).BeginInit();
@@ -164,7 +169,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Location = new System.Drawing.Point(457, 358);
+            this.button3.Location = new System.Drawing.Point(457, 396);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(278, 54);
             this.button3.TabIndex = 0;
@@ -206,14 +211,14 @@
             // 
             // Qty
             // 
-            this.Qty.Location = new System.Drawing.Point(242, 246);
+            this.Qty.Location = new System.Drawing.Point(678, 363);
             this.Qty.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.Qty.Name = "Qty";
-            this.Qty.Size = new System.Drawing.Size(209, 27);
+            this.Qty.Size = new System.Drawing.Size(57, 27);
             this.Qty.TabIndex = 6;
             this.Qty.Value = new decimal(new int[] {
             1,
@@ -224,22 +229,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 253);
+            this.label8.Location = new System.Drawing.Point(457, 365);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(223, 20);
             this.label8.TabIndex = 5;
             this.label8.Text = "Product Quantity To Add To Cart";
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button5.Location = new System.Drawing.Point(8, 659);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(182, 54);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Previous Page";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.Add_Click);
             // 
             // button6
             // 
@@ -263,12 +257,67 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.ProDel);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.Location = new System.Drawing.Point(8, 659);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(182, 54);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "Previous Page";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.Add_Click);
+            // 
+            // Filter
+            // 
+            this.Filter.Location = new System.Drawing.Point(11, 258);
+            this.Filter.Name = "Filter";
+            this.Filter.Size = new System.Drawing.Size(120, 27);
+            this.Filter.TabIndex = 1;
+            // 
+            // Fina
+            // 
+            this.Fina.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Fina.Location = new System.Drawing.Point(137, 258);
+            this.Fina.Name = "Fina";
+            this.Fina.Size = new System.Drawing.Size(121, 29);
+            this.Fina.TabIndex = 0;
+            this.Fina.Text = "Filter by Name";
+            this.Fina.UseVisualStyleBackColor = false;
+            this.Fina.Click += new System.EventHandler(this.FiNa_Click);
+            // 
+            // Fipa
+            // 
+            this.Fipa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Fipa.Location = new System.Drawing.Point(264, 258);
+            this.Fipa.Name = "Fipa";
+            this.Fipa.Size = new System.Drawing.Size(106, 29);
+            this.Fipa.TabIndex = 0;
+            this.Fipa.Text = "Filter by Price";
+            this.Fipa.UseVisualStyleBackColor = false;
+            this.Fipa.Click += new System.EventHandler(this.Fip);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button8.Location = new System.Drawing.Point(376, 258);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 29);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "Refresh";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.FormLoad);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1271, 734);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.Fipa);
+            this.Controls.Add(this.Fina);
+            this.Controls.Add(this.Filter);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -290,7 +339,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ProNa);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.Text = "Shopping Cart";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClearCart);
             this.Load += new System.EventHandler(this.FormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.Products)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cart)).EndInit();
@@ -320,9 +372,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown Qty;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox Filter;
+        private System.Windows.Forms.Button Fina;
+        private System.Windows.Forms.Button Fipa;
+        private System.Windows.Forms.Button button8;
     }
 }
 

@@ -49,6 +49,10 @@ namespace ShoppingCart
             Cont.OpenConnection();
             this.Products.DataSource = Cont.GetProducts();
             Cont.CloseConnection();
+
+            Cont.OpenConnection();
+            Cart.DataSource = Cont.GetCart();
+            Cont.CloseConnection();
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -144,6 +148,37 @@ namespace ShoppingCart
             else
             {
                 MessageBox.Show("Please highlight the product you want to remove");
+            }
+        }
+
+        private void ClearCart(object sender, FormClosingEventArgs e)
+        {
+            Cont.OpenConnection();
+            Cont.ClearCart();
+            Cont.CloseConnection();
+        }
+
+        private void FiNa_Click(object sender, EventArgs e)
+        {
+            Cont.OpenConnection();
+            Products.DataSource = Cont.FilterProducts(Filter.Text);
+            Cont.CloseConnection();
+        }
+
+        private void Fip(object sender, EventArgs e)
+        {
+
+            int.TryParse(Filter.Text, out int c);
+
+            if (c > 0)
+            {
+                Cont.OpenConnection();
+                this.Products.DataSource = Cont.FilterPrice(c);
+                Cont.CloseConnection();
+            }
+            else
+            {
+                MessageBox.Show("The filter price button only works with decimals, try filter by name for text");
             }
         }
     }
