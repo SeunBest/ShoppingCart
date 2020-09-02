@@ -6,6 +6,10 @@ using System.Text;
 
 namespace ShoppingCart.Libraries
 {
+    /// <summary>
+    /// Creates the product template for the result of 
+    /// querying the database for products
+    /// </summary>
     public class Product
     {
         public int ProductId { get; set; }

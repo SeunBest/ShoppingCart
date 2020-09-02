@@ -14,11 +14,17 @@ namespace ShoppingCart
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Declaration of global variables used to track productid
+        /// customerid,textbox values and an instance of IConnection interface
+        /// </summary>
         int pid;
         int cid;
         decimal price;
         string name = null;
         IConnection Cont;
+
+        //Construct form with 
         public Form1(IConnection cont)
         {
             InitializeComponent();

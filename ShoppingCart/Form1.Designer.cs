@@ -54,6 +54,7 @@
             this.Fina = new System.Windows.Forms.Button();
             this.Fipa = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Qty)).BeginInit();
@@ -180,10 +181,10 @@
             // Cart
             // 
             this.Cart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Cart.Location = new System.Drawing.Point(741, 284);
+            this.Cart.Location = new System.Drawing.Point(741, 47);
             this.Cart.Name = "Cart";
             this.Cart.RowHeadersWidth = 51;
-            this.Cart.Size = new System.Drawing.Size(517, 349);
+            this.Cart.Size = new System.Drawing.Size(517, 666);
             this.Cart.TabIndex = 3;
             this.Cart.Text = "dataGridView1";
             this.Cart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartCell);
@@ -191,7 +192,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Location = new System.Drawing.Point(457, 534);
+            this.button4.Location = new System.Drawing.Point(457, 472);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(278, 54);
             this.button4.TabIndex = 0;
@@ -203,7 +204,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Black", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(966, 253);
+            this.label7.Location = new System.Drawing.Point(965, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 28);
             this.label7.TabIndex = 4;
@@ -308,12 +309,24 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.FormLoad);
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button9.Location = new System.Drawing.Point(457, 545);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(278, 54);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "Remove From Cart";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.DelClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1271, 734);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.Fipa);
             this.Controls.Add(this.Fina);
@@ -379,6 +392,7 @@
         private System.Windows.Forms.Button Fina;
         private System.Windows.Forms.Button Fipa;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 
