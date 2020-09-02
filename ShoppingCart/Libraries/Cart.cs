@@ -11,6 +11,6 @@ namespace ShoppingCart.Libraries
         public decimal Cost { get; set; }
         //public int ProductId { get; set; }
         public int Quantity { get; set; }
-       // public DateTime DateOfOrder { get; set; }
+        public DateTime DateOfOrder { get; set; }
     }
 }

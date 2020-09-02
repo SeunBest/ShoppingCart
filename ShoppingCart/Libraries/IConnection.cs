@@ -14,7 +14,9 @@ namespace ShoppingCart.Libraries
         public void EditPro(string name, int cost, int id);
         public List<Product> GetProducts();
         public List<Cart> GetCart();
-
+        public void DelCart(int cid);
+        public void DelProd(int pid);
+       
         public void InsertCart(int ProductId, int qty);
         public SqlDataReader DataReader(string Query_);
 

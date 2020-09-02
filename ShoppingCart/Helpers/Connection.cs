@@ -58,7 +58,7 @@ namespace ShoppingCart.Helpers
         public List<Cart> GetCart()
         {
             List<Cart> carts = new List<Cart>();
-            string query = $"SELECT Cart.Id, Product.ProductName, Product.CostPrice, Cart.Quantity FROM Product INNER JOIN Cart ON Product.ProductId = Cart.ProductId; ";
+            string query = $"SELECT Cart.Id, Product.ProductName, Product.CostPrice, Cart.Quantity, Cart.DateOfOrder FROM Product INNER JOIN Cart ON Product.ProductId = Cart.ProductId; ";
             using var cmd = new SqlCommand(query, con);
             var result = cmd.ExecuteReader();
             while (result.Read())
@@ -68,6 +68,7 @@ namespace ShoppingCart.Helpers
                 cart.Name = (string)result[1];
                 cart.Cost = (decimal)result[2];
                 cart.Quantity = (int)result[3];
+                cart.DateOfOrder = (DateTime)result[4];
                 carts.Add(cart);
             }
             return carts;
@@ -76,6 +77,20 @@ namespace ShoppingCart.Helpers
         public void InsertCart(int ProductId, int qty)
         {
             string query = $"INSERT INTO Cart (ProductId, Quantity) VALUES('{ProductId}', '{qty}')";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DelCart(int cid)
+        {
+            string query = $"DELETE FROM Cart WHERE Id='{cid}'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DelProd(int pid)
+        {
+            string query = $"DELETE FROM Product WHERE ProductId='{pid}'";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.ExecuteNonQuery();
         }

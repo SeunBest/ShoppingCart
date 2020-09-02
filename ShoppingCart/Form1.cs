@@ -15,6 +15,7 @@ namespace ShoppingCart
     public partial class Form1 : Form
     {
         int pid;
+        int cid;
         decimal price;
         string name = null;
         IConnection Cont;
@@ -53,19 +54,19 @@ namespace ShoppingCart
         private void Edit_Click(object sender, EventArgs e)
         {
             int.TryParse(EPrice.Text, out int c);
-            int.TryParse(id.Text, out int d);
 
-            if (c > 0 && d > 0)
+            if (c > 0 && pid > 0 && EName.Text != "")
             {
                 Cont.OpenConnection();
-                Cont.EditPro(EName.Text, c, d);
+                Cont.EditPro(EName.Text, c, pid);
                 this.Products.DataSource = Cont.GetProducts();
                 Cont.CloseConnection();
                 MessageBox.Show("Product edited successfully");
+                pid = 0;
             }
             else
             {
-                MessageBox.Show("Check either your id or new price values");
+                MessageBox.Show("Please highlight a product and also input a new product name and a new product price");
             }
         }
 
@@ -92,10 +93,57 @@ namespace ShoppingCart
                 Cont.CloseConnection();
                 MessageBox.Show("Product added successfully to cart");
                 name = null;
+                Qty.Value = 1;
+                pid = 0;
             }
             else
             {
                 MessageBox.Show("Highlight a product");
+            }
+        }
+
+        private void DelClick(object sender, EventArgs e)
+        {
+            if (cid != 0)
+            {
+                Cont.OpenConnection();
+                Cont.DelCart(cid);
+                this.Cart.DataSource = Cont.GetCart();
+                Cont.CloseConnection();
+                MessageBox.Show("Product successfully removed from cart");
+                cid = 0;
+            } else
+            {
+                MessageBox.Show("Please highlight product to remove from cart");
+            }
+        }
+
+        private void CartCell(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Cart.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                Cart.CurrentRow.Selected = true;
+               // name = Products.Rows[e.RowIndex].Cells["ProductName"].FormattedValue.ToString();
+                //price = Decimal.Parse(Products.Rows[e.RowIndex].Cells["CostPrice"].FormattedValue.ToString());
+                cid = Convert.ToInt32(Cart.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString());
+                // MessageBox.Show($"{name}, {price}, {pid}");
+            }
+        }
+
+        private void ProDel(object sender, EventArgs e)
+        {
+            if (pid != 0)
+            {
+                Cont.OpenConnection();
+                Cont.DelProd(pid);
+                this.Products.DataSource = Cont.GetProducts();
+                Cont.CloseConnection();
+                MessageBox.Show("Product successfully removed from cart");
+                pid = 0;
+            }
+            else
+            {
+                MessageBox.Show("Please highlight the product you want to remove");
             }
         }
     }
